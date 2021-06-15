@@ -12,6 +12,7 @@ const App = () => {
         'Rufina-Bold': require('./assets/fonts/rufina/Rufina-Bold.ttf'),
         'Montserrat': require('./assets/fonts/montserrat/Montserrat-Regular.ttf'),
         'Montserrat-Bold': require('./assets/fonts/montserrat/Montserrat-Bold.ttf'),
+        'ReemKufi': require('./assets/fonts/reemkufi/ReemKufi-Regular.ttf'),
     });
 
     if (!loaded) {
