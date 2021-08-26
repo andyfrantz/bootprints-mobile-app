@@ -1,0 +1,21 @@
+version: "2.4"
+
+services:
+    localdev:
+        build:
+            context: .
+            args:
+              - NODE_ENV=development
+        command: start --lan
+        ports:
+            - 19000:19000
+            - 19001:19001
+            - 19002:19002
+        volumes:
+            - .:/app
+        environment:
+            - EXPO_USERNAME
+            - EXPO_PASSWORD
+            - REACT_NATIVE_PACKAGER_HOSTNAME
+            - REACT_DEBUGGER=rndebugger-open --exp
+            - EXPO_DEVTOOLS_LISTEN_ADDRESS=0.0.0.0
