@@ -13,7 +13,7 @@ const TrailsItem = props => {
         TouchableCmp = TouchableNativeFeedback;
     }
     return (
-        <TouchableCmp>
+        <TouchableCmp onPress={props.onSelect}>
             <View style={styles.item}>
                 <View style={styles.itemCol}>
                     <Text style={styles.title1}>Auto-pédestre trail</Text>

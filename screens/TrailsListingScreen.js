@@ -1,12 +1,21 @@
 import React from 'react';
 import { View } from 'react-native';
 
+import TrailsList from '../components/TrailsList'
+
+import DATA from '../data/circular-routes';
+
 const TrailsListingScreen = props => {
-    return <View>
+    const selectItemHandler = () => {
+        props.navigation.navigate('Route');
+      };
+
+    return <View style={{ flex: 1}}>
         <TrailsList
-            trails={props.trails}
+            trails={ DATA }
+            onItemSelect={() => selectItemHandler()}
         />
     </View>;
 };
 
-export default TrailsListing;
+export default TrailsListingScreen;

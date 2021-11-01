@@ -1,10 +1,17 @@
 import React from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar } from 'react-native';
+import { View, Text } from 'react-native';
+
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useFonts } from 'expo-font';
 
-import TrailsList from './components/TrailsList'
+import TrailsListingScreen  from './screens/TrailsListingScreen';
+import TrailDetailsScreen from './screens/TrailDetailsScreen';
 
 import DATA from './data/circular-routes';
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
     const [loaded] = useFonts({
@@ -19,22 +26,17 @@ const App = () => {
         return null;
     }
 
+    
   return (
-      <SafeAreaView style={styles.container}>
-        <TrailsList
-            trails={DATA}
-        />
-      </SafeAreaView>
+    
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen name="Circular routes" component={TrailsListingScreen} />
+            <Stack.Screen name="Route" component={TrailDetailsScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
+    
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
-  },
-
-
-});
 
 export default App;
