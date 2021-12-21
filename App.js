@@ -7,9 +7,20 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useFonts } from 'expo-font';
 
 import TrailsListingScreen  from './screens/TrailsListingScreen';
-import TrailDetailsScreen from './screens/TrailDetailsScreen';
+import TrailDetailsScreen, {
+  screenOptions as trailDetailsScreenOptions
+} from './screens/TrailDetailsScreen';
+import COLORS from './constants/colors';
 
 import DATA from './data/circular-routes';
+
+
+const defaultNavOptions = {
+  headerStyle: {
+    backgroundColor: Platform.OS === 'android' ? COLORS.primaryColor : ''
+  },
+  headerTintColor: Platform.OS === 'android' ? 'white' : COLORS.primaryColor
+};
 
 const Stack = createNativeStackNavigator();
 
@@ -30,9 +41,9 @@ const App = () => {
   return (
     
         <NavigationContainer>
-          <Stack.Navigator>
+          <Stack.Navigator screenOptions={defaultNavOptions}>
             <Stack.Screen name="Circular routes" component={TrailsListingScreen} />
-            <Stack.Screen name="Route" component={TrailDetailsScreen} />
+            <Stack.Screen name="Route" component={TrailDetailsScreen} options={trailDetailsScreenOptions}/>
           </Stack.Navigator>
         </NavigationContainer>
     

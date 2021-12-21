@@ -10,7 +10,7 @@ const renderItem = ({ item }) => (
         distance={item.distance}
         region={item.region}
         level={item.level}
-        onSelect={() => props.onItemSelect()}
+        onSelect={() => props.onItemSelect(item.id, item.name)}
     />
 );
 
@@ -24,7 +24,7 @@ const TrailsList = props => {
                 distance={item.distance}
                 region={item.region}
                 level={item.level}
-                onSelect={() => props.onItemSelect()}
+                onSelect={() => props.onItemSelect(item.id, item.name)}
             />
         )}
     />
